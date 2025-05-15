@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PRAA STORE - Top Up Game Termurah & Terpercaya</title>
+  
+  <style>
+    body {
+            margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #0f172a, #1e3a8a);
+      color: #ffffff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-attachment: fixed;
+    }
+
+    .form-container {
+      background-color: rgba(15, 23, 42, 0.9); /* biru gelap semi transparan */
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow:
+        0 0 10px rgba(174, 240, 240, 0.6),
+        0 0 20px rgba(0, 255, 255, 0.5),
+        0 0 40px rgba(0, 255, 255, 0.3);
+      border: 2px solid #00ffff;
+      width: 90%;
+      max-width: 400px;
+    }
+
+    h2 {
+      text-align: center;
+      color: #00ffff;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #cbd5e1;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 8px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 16px;
+    }
+
+    input, select {
+      background-color: #c9d6eb;
+      color: #fff;
+    }
+
+    button {
+      background-color: #aaccee;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #8cf5f5;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 14px;
+      color: #94a3b8;
+      margin: 0; padding: 0;
+      font-family: Arial, Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      color: #eee;
+      min-height: 100vh;
+      background-image:
+        url('https://i.ibb.co/F0RhH0q/game-sticker1.png'),
+        url('https://i.ibb.co/7p7PwxF/game-sticker2.png'),
+      background-repeat: no-repeat, no-repeat, no-repeat;
+      background-position: left bottom, right top, center top;
+      background-size: 120px 120px, 100px 100px, 150px 150px;
+    }
+    .container {
+      max-width: 480px;
+      margin: 40px auto 60px;
+      background-color: rgba(0,0,0,0.6);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 20px #aaccee;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #bbe1fa;
+      margin-bottom: 25px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #bbe1fa;
+    }
+    select, input[type="text"], input[type="email"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      margin-bottom: 20px;
+      font-size: 1rem;
+    }
+    select {
+      background-color: #aaccee;
+      color: #fff;
+    }
+    input[type="text"], input[type="email"] {
+      background-color: #aaccee;
+      color: #fff;
+    }
+    #serverField {
+      display: none;
+    }
+    button {
+      background-color: lab(65.17% -20.05 -21.05);
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      font-weight: bold;
+      padding: 14px;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #aaccee;
+    }
+    .panduan {
+      background-color: #154c57;
+      padding: 20px;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-top: 40px;
+      color: #a5c9ff;
+    }
+    footer {
+      text-align: center;
+      color: #aaccee;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>PRAA STORE</h1>
+    <p style="text-align:center; margin-top:-15px; margin-bottom:30px; color:#a1c4fd; font-style: italic;">
+      Top Up PUBG, ML, dan Free Fire Termurah & Terpercaya
+    </p>
+
+    <h2>Form Top Up</h2>
+    <form id="topupForm" onsubmit="return pesanWhatsApp()">
+      <label for="game">Pilih Game:</label>
+      <select id="game" name="game" onchange="toggleServerField(); updatePaketOptions()">
+        <option value="PUBG Mobile">PUBG Mobile</option>
+        <option value="Mobile Legends">Mobile Legends</option>
+        <option value="Free Fire">Free Fire</option>
+      </select>
+
+      <label for="userId">User ID:</label>
+      <input type="text" id="userId" name="userId" placeholder="Masukkan User ID" required />
+
+      <div id="serverField">
+        <label for="server">Server:</label>
+        <input type="text" id="server" name="server" placeholder="Masukkan Server (8585)" />
+      </div>
+
+      <label for="email">Email (opsional):</label>
+      <input type="email" id="email" name="email" placeholder="Masukkan Email" />
+
+      <label for="paket">Pilih Paket:</label>
+      <select id="paket" name="paket" required>
+        <!-- Paket akan terisi otomatis via JS -->
+      </select>
+
+      <button type="submit">Pesan via WhatsApp</button>
+    </form>
+
+    <div class="panduan">
+      <h2>Panduan Cara Top Up</h2>
+      <ol>
+        <li>Pilih game yang ingin di top up.</li>
+        <li>Masukkan User ID dengan benar.</li>
+        <li>Jika Mobile Legends, isi kolom Server.</li>
+        <li>Pilih paket sesuai kebutuhan.</li>
+        <li>Isi email jika ingin menerima bukti pembayaran via email.</li>
+        <li>Klik tombol "Pesan via WhatsApp".</li>
+        <li>Kirim pesan dan tunggu konfirmasi dari kami.</li>
+      </ol>
+    </div>
+  </div>
+  <script>
+    // Harga asli dari provider (APIGames.id)
+    const priceData = {
+      "PUBG Mobile": [
+        { label: "30 UC", price: 6630 },
+        { label: "60 UC", price: 13289 },
+        { label: "300 + 25 UC", price: 66390 },
+        { label: "600 + 60 UC", price: 132750 },
+        { label: "1500 + 300 UC", price: 331890 },
+        { label: "3000 + 850 UC", price: 663750 },
+        { label: "6000 + 2100 UC", price: 1327500 },
+      ],
+      "Mobile Legends": [
+        { label: "86 Diamond", price: 16000 },
+        { label: "172 Diamond", price: 32000 },
+        { label: "257 Diamond", price: 48000 },
+        { label: "344 Diamond", price: 65000 },
+        { label: "429 Diamond", price: 81000 },
+        { label: "514 Diamond", price: 97000 },
+        { label: "706 Diamond", price: 128000 },
+      ],
+      "Free Fire": [
+        { label: "70 Diamonds", price: 8600 },
+        { label: "140 Diamonds", price: 17200 },
+        { label: "355 Diamonds", price: 43000 },
+        { label: "720 Diamonds", price: 86000 },
+        { label: "1450 Diamonds", price: 172000 },
+        { label: "2180 Diamonds", price: 260000 },
+        { label: "3640 Diamonds", price: 435000 },
+      ]
+    };
+
+    // Fungsi format angka ke rupiah
+    function formatRupiah(number) {
+      return "Rp" + number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    // Hitung markup 2%
+    function withMarkup(price) {
+      return Math.round(price * 1.02);
+    }
+
+    // Update pilihan paket otomatis berdasarkan game
+    function updatePaketOptions() {
+      const game = document.getElementById("game").value;
+      const paketSelect = document.getElementById("paket");
+      paketSelect.innerHTML = "";
+
+      const items = priceData[game];
+      items.forEach(item => {
+        const priceWithMarkup = withMarkup(item.price);
+        const option = document.createElement("option");
+        option.value = `${item.label} - ${formatRupiah(priceWithMarkup)}`;
+        option.textContent = `${item.label} - ${formatRupiah(priceWithMarkup)}`;
+        paketSelect.appendChild(option);
+      });
+    }
+
+    // Toggle field server hanya untuk Mobile Legends
+    function toggleServerField() {
+      const game = document.getElementById("game").value;
+      document.getElementById("serverField").style.display = (game === "Mobile Legends") ? "block" : "none";
+    }
+
+    // Initialize saat halaman dimuat
+    window.onload = function() {
+      toggleServerField();
+      updatePaketOptions();
+    };
+
+    // Fungsi tombol pesan WhatsApp
+    function pesanWhatsApp() {
+      const game = document.getElementById("game").value;
+      const userId = document.getElementById("userId").value.trim();
+      const server = document.getElementById("server").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const paket = document.getElementById("paket").value;
+
+      if (!userId) {
+        alert("Mohon isi User ID.");
+        return false;
+      }
+      if (game === "Mobile Legends" && !server) {
+        alert("Mohon isi Server untuk Mobile Legends.");
+        return false;
+      }
+
+      let waMessage = `Halo Admin PRAA STORE, saya ingin melakukan top up game.\n\n`;
+      waMessage += `🎮 Game: ${game}\n`;
+      waMessage += `🆔 User ID: ${userId}\n`;
+      if (game === "Mobile Legends") {
+        waMessage += `Server: ${server}\n`;
+      }
+      if (email) {
+        waMessage += `Email: ${email}\n`;
+      }
+      waMessage += `Paket: ${paket}\n\n`;
+      waMessage += `Mohon segera diproses ya kak 🙏. Terima kasih!`;
+
+      const waNumber = "6281234567890"; // Ganti dengan nomor WhatsApp toko kamu
+      const waUrl = `https://wa.me/${6281361094715}?text=${encodeURIComponent(waMessage)}`;
+      window.open(waUrl, "_blank");
+      return false; // Prevent form submit
+    }
+  </script>
+</body>
+</html>
